@@ -9,15 +9,15 @@
        1. VARIABLES DE DISEÑO Y MARCA TAKAMI
        ====================================================== */
     :root {
-      --primary-color: #232323;       /* Tono carbón corporativo, más suave que el negro puro */
-      --accent-color: #c5a059;        /* Color dorado TAKAMI */
-      --bg-chat: #ffffff;             /* Fondo interior del chat más limpio */
-      --page-bg: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%); /* Fondo de página cálido y moderno */
-      --text-dark: #2d3748;           /* Texto general amigable a la vista */
-      --bot-msg-bg: #f3f4f6;          /* Fondo del mensaje de la IA - gris muy suave */
-      --bot-msg-text: #374151;        /* Texto mensaje IA - gris oscuro */
-      --user-msg-bg: #232323;         /* Fondo del mensaje del usuario */
-      --user-msg-text: #ffffff;       /* Texto del usuario */
+      --primary-color: #232323;
+      --accent-color: #c5a059;
+      --bg-chat: #ffffff;
+      --page-bg: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%);
+      --text-dark: #2d3748;
+      --bot-msg-bg: #f3f4f6;
+      --bot-msg-text: #374151;
+      --user-msg-bg: #232323;
+      --user-msg-text: #ffffff;
       --font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     }
     
@@ -31,51 +31,51 @@
       margin: 0;
       padding: 20px;
       color: var(--text-dark);
+      box-sizing: border-box;
     }
 
     /* Contenedor Principal del Chat */
     .chat-container {
       width: 100%;
-      max-width: 420px; /* Un poco más estilizado */
+      max-width: 420px;
       height: 650px;
       background: #ffffff;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sombra más suave y expansiva */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      position: relative;
     }
 
     /* Encabezado con Logo de TAKAMI */
     .chat-header {
       background-color: var(--primary-color);
       color: #ffffff;
-      padding: 20px 24px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      border-bottom: 3px solid var(--accent-color); /* Línea dorada más pronunciada */
+      gap: 14px;
+      border-bottom: 3px solid var(--accent-color);
     }
 
     .chat-header img {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
       background-color: #ffffff;
-      padding: 3px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 2px;
     }
 
     .header-info h3 { 
-      font-size: 18px; 
+      font-size: 17px; 
       font-weight: 600; 
-      margin: 0 0 4px 0;
-      letter-spacing: 0.5px;
+      margin: 0 0 3px 0;
     }
     
     .header-info p { 
-      font-size: 13px; 
+      font-size: 12px; 
       opacity: 0.9; 
       margin: 0;
       display: flex; 
@@ -86,65 +86,61 @@
     .status-dot { 
       width: 8px; 
       height: 8px; 
-      background-color: #4ade80; /* Verde más moderno y brillante */
+      background-color: #4ade80; 
       border-radius: 50%; 
       display: inline-block; 
-      box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+      box-shadow: 0 0 6px rgba(74, 222, 128, 0.5);
     }
 
     /* Área de Mensajes */
     .chat-messages {
       flex: 1;
-      padding: 24px 20px;
+      padding: 20px;
       background-color: var(--bg-chat);
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
-    /* Scrollbar estilizado */
-    .chat-messages::-webkit-scrollbar { width: 6px; }
-    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar { width: 5px; }
     .chat-messages::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
 
     .message {
       max-width: 85%;
-      padding: 14px 18px;
-      font-size: 14.5px;
+      padding: 12px 16px;
+      font-size: 14px;
       line-height: 1.5;
       white-space: pre-wrap;
       word-wrap: break-word;
-      animation: fadeIn 0.3s ease-out;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      animation: fadeIn 0.25s ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Burbujas de chat más redondeadas y conversacionales */
     .message.bot {
       align-self: flex-start;
       background-color: var(--bot-msg-bg);
       color: var(--bot-msg-text);
-      border-radius: 18px 18px 18px 4px;
+      border-radius: 16px 16px 16px 4px;
     }
 
     .message.user {
       align-self: flex-end;
       background-color: var(--user-msg-bg);
       color: var(--user-msg-text);
-      border-radius: 18px 18px 4px 18px;
+      border-radius: 16px 16px 4px 16px;
     }
 
     /* Indicador de "Escribiendo..." */
     .typing-indicator {
       align-self: flex-start;
       background-color: var(--bot-msg-bg);
-      padding: 14px 18px;
-      border-radius: 18px 18px 18px 4px;
+      padding: 12px 16px;
+      border-radius: 16px 16px 16px 4px;
       display: none;
       gap: 5px;
       align-items: center;
@@ -168,52 +164,95 @@
 
     /* Área de Entrada de Texto */
     .chat-input-area {
-      padding: 16px 20px;
+      padding: 14px 18px;
       background-color: #ffffff;
       border-top: 1px solid #f1f5f9;
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
     }
 
     .chat-input-area input {
       flex: 1;
-      padding: 14px 20px;
+      padding: 12px 18px;
       border: 1px solid #e2e8f0;
-      border-radius: 30px;
+      border-radius: 25px;
       outline: none;
-      font-size: 14.5px;
-      transition: all 0.2s ease;
+      font-size: 14px;
       background-color: #f8fafc;
     }
 
     .chat-input-area input:focus { 
       border-color: var(--accent-color);
       background-color: #ffffff;
-      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
     }
 
     .chat-input-area button {
-      background-color: var(--accent-color); /* Botón en dorado corporativo */
+      background-color: var(--accent-color);
       color: #ffffff;
       border: none;
-      padding: 14px 24px;
-      border-radius: 30px;
+      padding: 12px 20px;
+      border-radius: 25px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 14.5px;
+      font-size: 14px;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
     }
 
     .chat-input-area button:hover { 
       background-color: #b38e4a; 
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(197, 160, 89, 0.4);
     }
-    
-    .chat-input-area button:active {
-      transform: translateY(0);
+
+    /* ======================================================
+       PANTALLA DE BLOQUEO / SESIÓN EXPIRADA
+       ====================================================== */
+    .lock-overlay {
+      position: absolute;
+      top: 75px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .lock-overlay svg {
+      margin-bottom: 16px;
+      stroke: var(--accent-color);
+    }
+
+    .lock-overlay h3 {
+      font-size: 18px;
+      color: var(--primary-color);
+      margin: 0 0 8px 0;
+    }
+
+    .lock-overlay p {
+      font-size: 13.5px;
+      color: #64748b;
+      margin: 0 0 24px 0;
+      line-height: 1.5;
+    }
+
+    .lock-btn {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .lock-btn:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -225,13 +264,25 @@
       <img id="takami-logo" src="LogoReducidoN.png" alt="Takami Logo">
       <div class="header-info">
         <h3>Asistente KAMI-AI</h3>
-        <p><span class="status-dot"></span> En línea para ayudarte</p>
+        <p><span class="status-dot"></span> En línea para colaboradores</p>
       </div>
+    </div>
+
+    <!-- Pantalla de Bloqueo por Expiración -->
+    <div class="lock-overlay" id="lock-screen">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <h3>Sesión Expirada</h3>
+      <p>Por políticas de seguridad interna, el enlace temporal de acceso ha caducado.</p>
+      <!-- REEMPLAZA ESTA URL POR EL ENLACE DEL WEBHOOK ACCESO O TU INTRANET TAKAMI -->
+      <a href="https://takami-analitica.app.n8n.cloud/webhook/acceso-kami" class="lock-btn">Reactivar Sesión</a>
     </div>
 
     <!-- Mensajes -->
     <div class="chat-messages" id="chat-messages">
-      <div class="message bot">¡Hola! Qué gusto saludarte. Soy el asistente de colaboradores de Takami. ¿En qué te puedo apoyar el día de hoy?</div>
+      <div class="message bot">¡Hola! Soy KAMI-AI, tu asistente de documentación interna de Takami. ¿En qué te puedo colaborar hoy?</div>
     </div>
 
     <!-- Indicador de Carga -->
@@ -247,51 +298,71 @@
   </div>
 
   <script>
-   /* ======================================================
-     1. CONFIGURACIÓN DEL WEBHOOK Y TIEMPO DE SESIÓN
+  /* ======================================================
+     1. CONFIGURACIÓN DEL WEBHOOK DE CHAT DE N8N
      ====================================================== */
   const N8N_WEBHOOK_URL = "https://takami-analitica.app.n8n.cloud/webhook/fc87dbcb-6724-4852-8f66-b1c03233fdb3/chat";
-  
-  // Tiempo de inactividad antes de renovar la sesión (15 minutos)
-  const MINUTOS_INACTIVIDAD = 15; 
-  const TIEMPO_LIMITE_MS = MINUTOS_INACTIVIDAD * 60 * 1000; 
 
-  /* ======================================================
-     2. LÓGICA DE GESTIÓN DE SESIÓN
-     ====================================================== */
-  function obtenerOcrearSessionId() {
-    const ahora = Date.now();
-    const ultimaActividad = localStorage.getItem("takami_last_activity");
-    let sessionId = localStorage.getItem("takami_chat_session");
-
-    if (!sessionId || !ultimaActividad || (ahora - parseInt(ultimaActividad)) > TIEMPO_LIMITE_MS) {
-      sessionId = "takami_colab_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7);
-      localStorage.setItem("takami_chat_session", sessionId);
-      console.log("Sesión anterior expirada. Nueva sesión iniciada:", sessionId);
-    }
-
-    localStorage.setItem("takami_last_activity", ahora.toString());
-    return sessionId;
-  }
+  // Capturar parámetros de la URL firmada
+  const urlParams = new URLSearchParams(window.location.search);
+  const expiracion = urlParams.get("exp");
+  const token = urlParams.get("token");
 
   const messagesContainer = document.getElementById("chat-messages");
   const userInput = document.getElementById("user-input");
   const typingIndicator = document.getElementById("typing-indicator");
+  const lockScreen = document.getElementById("lock-screen");
+  const inputArea = document.querySelector(".chat-input-area");
+
+  /* ======================================================
+     2. GESTIÓN DE SEGURIDAD Y EXPIRACIÓN TEMPORAL
+     ====================================================== */
+  function verificarAccesoTemporal() {
+    const ahoraSegundos = Math.floor(Date.now() / 1000);
+
+    // Si no cuenta con token, expiración o el tiempo límite ya pasó
+    if (!token || !expiracion || ahoraSegundos > parseInt(expiracion)) {
+      bloquearInterfaz();
+      return false;
+    }
+    return true;
+  }
+
+  function bloquearInterfaz() {
+    lockScreen.style.display = "flex";
+    messagesContainer.style.display = "none";
+    inputArea.style.display = "none";
+  }
+
+  // Validar inmediatamente al cargar y revalidar cada 30 segundos
+  if (verificarAccesoTemporal()) {
+    setInterval(verificarAccesoTemporal, 30000);
+  }
+
+  /* ======================================================
+     3. GESTIÓN DE SESIÓN DE CONVERSACIÓN
+     ====================================================== */
+  function obtenerOcrearSessionId() {
+    let sessionId = localStorage.getItem("takami_chat_session");
+    if (!sessionId) {
+      sessionId = "takami_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7);
+      localStorage.setItem("takami_chat_session", sessionId);
+    }
+    return sessionId;
+  }
 
   function appendMessage(sender, text) {
     const msgDiv = document.createElement("div");
     msgDiv.classList.add("message", sender);
     msgDiv.textContent = text;
     messagesContainer.appendChild(msgDiv);
-    
-    // Suave animación de scroll al nuevo mensaje
-    messagesContainer.scrollTo({
-      top: messagesContainer.scrollHeight,
-      behavior: 'smooth'
-    });
+    messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
   }
 
   async function sendMessage() {
+    // Validar tiempo antes de cada envío
+    if (!verificarAccesoTemporal()) return;
+
     const text = userInput.value.trim();
     if (!text) return;
 
@@ -300,7 +371,6 @@
     appendMessage("user", text);
     userInput.value = "";
     
-    // Mostrar indicador de escritura
     messagesContainer.appendChild(typingIndicator);
     typingIndicator.style.display = "flex";
     messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
@@ -312,14 +382,16 @@
         body: JSON.stringify({
           action: "sendMessage",
           sessionId: currentSessionId,
-          chatInput: text
+          chatInput: text,
+          token: token,
+          exp: expiracion
         })
       });
 
       const data = await response.json();
       typingIndicator.style.display = "none";
 
-      let botResponse = "Lo siento, no pude procesar tu solicitud en este momento.";
+      let botResponse = "No se recibió respuesta.";
       if (Array.isArray(data) && data[0]?.output) {
         botResponse = data[0].output;
       } else if (data.output) {
@@ -327,12 +399,11 @@
       }
 
       appendMessage("bot", botResponse);
-      localStorage.setItem("takami_last_activity", Date.now().toString());
 
     } catch (error) {
       console.error("Error al conectar con n8n:", error);
       typingIndicator.style.display = "none";
-      appendMessage("bot", "Ocurrió un error de conexión con el servidor. Por favor intenta de nuevo en unos minutos.");
+      appendMessage("bot", "Ocurrió un error al procesar tu solicitud. Por favor intenta de nuevo.");
     }
   }
 
